@@ -32,16 +32,12 @@ function HomePage() {
   ]);
 
   return (
-    <div className="HomePage bg-gray-100 min-h-screen flex flex-col items-center justify-center">
-      <header className="max-w-xl w-full text-center">
-        <h1 className="text-3xl font-bold mb-4">
-          NPL - National Premier League
-        </h1>
-        <div className="mb-8">
-          <Link to="/score-update" className="text-blue-500 hover:underline">
-            Update Scores
-          </Link>
-        </div>
+    <div className="HomePage bg-gradient-to-br from-blue-500 to-indigo-600 min-h-screen flex flex-col items-center justify-center">
+      <header className="max-w-xl w-full text-center mb-8">
+        <h1 className="text-4xl font-bold text-white mb-4">Welcome to Cricket Dashboard</h1>
+        <Link to="/score-update" className="text-white hover:underline">
+          Update Scores
+        </Link>
       </header>
       <div className="max-w-xl w-full">
         {matches.map((match) => (
