@@ -1,10 +1,9 @@
 import React from "react";
 
 const BowlingCard = ({
-  bowlers,
   isCaptain,
   isWicketKeeper,
-  allBowlerStats,
+  players,
 }) => {
   return (
     <div className="bg-white shadow-md rounded-lg p-6 mb-8">
@@ -23,12 +22,12 @@ const BowlingCard = ({
             </tr>
           </thead>
           <tbody className="">
-            {allBowlerStats.map((bowler, index) => (
+            {players.map((bowler, index) => (
               <tr
                 key={index}
                 className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
               >
-                <td className="px-4 py-2 ">
+                <td className="px-4 py-2">
                   {bowler.name}{" "}
                   {isCaptain && index === 0 && (
                     <span className="text-sm text-gray-500">(C)</span>

@@ -1,70 +1,69 @@
 import React from "react";
-import BattingCard from "../components/BattingCard";
-import BowlingCard from "../components/BowlingCard";
+import TeamInnings from "../components/TeamInnings";
 
-const ScoreCard = ({ role }) => {
+
+const ScoreCard = () => {
   // Sample data for non-admin users
-  const nonAdminData = {
+  const team1Data = {
     total: 157,
     totalBallsBowled: 42,
-    batsmen: [
-      { name: "Batsman 1", runs: 65, balls: 42 },
-      { name: "Batsman 2", runs: 42, balls: 35 },
+    battingPlayers: [
+      { name: "Player 1", role: "Batsman" },
+      { name: "Player 2", role: "Batsman" },
+      { name: "Player 3", role: "Batsman" },
+      { name: "Player 4", role: "Batsman" },
+      { name: "Player 5", role: "Batsman" },
+      { name: "Player 6", role: "Batsman" },
+      { name: "Player 7", role: "Batsman" },
+      { name: "Player 8", role: "Batsman" },
+      { name: "Player 9", role: "Batsman" },
+      { name: "Player 10", role: "Batsman" },
+      { name: "Player 11", role: "Batsman" },
     ],
-    bowlers: [
-      { name: "Bowler 1", overs: 4 },
-      { name: "Bowler 2", overs: 3.2 },
+    bowlingPlayers: [
+      { name: "Player 1", role: "Bowler" },
+      { name: "Player 2", role: "Bowler" },
     ],
   };
-  const allPlayers = [
-    "Batsman 1",
-    "Batsman 2",
-    "Batsman 3",
-    "Batsman 4",
-    "Batsman 5",
-    "Batsman 6",
-    "Batsman 7",
-    "Batsman 8",
-    "Batsman 9",
-    "Batsman 10",
-    "Batsman 11",
-  ];
-  const isCaptain = true;
-  const isWicketKeeper = false;
-  const remainingBatters = allPlayers.filter(
-    (player) => !nonAdminData.batsmen.some((batsman) => batsman.name === player)
-  );
-  const allBowlerStats = [
-    { name: "Bowler 1", overs: 4, runs: 20, wickets: 1, economy: 5 },
-    { name: "Bowler 2", overs: 3.2, runs: 25, wickets: 0, economy: 6.25 },
-  ];
+
+  const team2Data = {
+    total: 120,
+    totalBallsBowled: 48,
+    battingPlayers: [
+      { name: "Player A", role: "Batsman" },
+      { name: "Player B", role: "Batsman" },
+      { name: "Player C", role: "Batsman" },
+      { name: "Player D", role: "Batsman" },
+      { name: "Player E", role: "Batsman" },
+      { name: "Player F", role: "Batsman" },
+      { name: "Player G", role: "Batsman" },
+      { name: "Player H", role: "Batsman" },
+      { name: "Player I", role: "Batsman" },
+      { name: "Player J", role: "Batsman" },
+      { name: "Player K", role: "Batsman" },
+    ],
+    bowlingPlayers: [
+      { name: "Player A", role: "Bowler" },
+      { name: "Player B", role: "Bowler" },
+    ],
+  };
+
   return (
     <div className="bg-gray-200 min-h-screen flex flex-col items-center justify-center">
       <div className="max-w-4xl w-full bg-white shadow-md rounded-lg p-8">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
-          Cricket Score Page (Cricbuzz Style)
+          Team 1 VS Team 2
         </h1>
-        {/* Batting Card */}
-        <BattingCard
-          batsmen={nonAdminData.batsmen}
-          remainingBatters={remainingBatters}
-          isCaptain={isCaptain}
-          isWicketKeeper={isWicketKeeper}
+        <TeamInnings
+          title="Team 1"
+          battingPlayers={team1Data.battingPlayers}
+          bowlingPlayers={team1Data.bowlingPlayers}
         />
-        {/* Bowling Card */}
-        <BowlingCard
-          bowlers={nonAdminData.bowlers}
-          isCaptain={isCaptain}
-          isWicketKeeper={isWicketKeeper}
-          allBowlerStats={allBowlerStats}
+        <TeamInnings
+          title="Team 2"
+          battingPlayers={team2Data.battingPlayers}
+          bowlingPlayers={team2Data.bowlingPlayers}
         />
-        {/* Total Score */}
-        <div className="mt-4 text-center">
-          <h3 className="text-lg font-semibold mb-2">Total Score</h3>
-          <p className="text-2xl">
-            {nonAdminData.total + "(" + nonAdminData.totalBallsBowled + ")"}
-          </p>
-        </div>
       </div>
     </div>
   );

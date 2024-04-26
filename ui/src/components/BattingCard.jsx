@@ -1,7 +1,7 @@
 import React from "react";
 
 const BattingCard = ({
-  batsmen,
+  players,
   remainingBatters,
   isCaptain,
   isWicketKeeper,
@@ -16,10 +16,11 @@ const BattingCard = ({
               <th className="px-4 py-2 text-left">Batsman</th>
               <th className="px-4 py-2 text-left">Runs</th>
               <th className="px-4 py-2 text-left">Balls</th>
+              <th className="px-4 py-2 text-left">Strike Rate</th>
             </tr>
           </thead>
           <tbody>
-            {batsmen.map((batsman, index) => (
+            {players.map((batsman, index) => (
               <tr
                 key={index}
                 className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
@@ -35,16 +36,17 @@ const BattingCard = ({
                 </td>
                 <td className="px-4 py-2">{batsman.runs}</td>
                 <td className="px-4 py-2">{batsman.balls}</td>
+                <td className="px-4 py-2">{batsman.strikerate}</td>
               </tr>
             ))}
             {/* Display remaining batters */}
-            {remainingBatters.length > 0 && (
+            {/* {remainingBatters.length > 0 && (
               <tr>
-                <td colSpan="3" className="px-4 py-2">
+                <td colSpan="4" className="px-4 py-2">
                   Remaining Batters: {remainingBatters.join(", ")}
                 </td>
               </tr>
-            )}
+            )} */}
           </tbody>
         </table>
       </div>
